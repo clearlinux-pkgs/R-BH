@@ -1,0 +1,95 @@
+2015-12-24  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 1.60.0-1
+
+	* local/scripts/CreateBoost.sh: Added Boost.Phoenix (cf #19)
+
+	* numeric/odeint/stepper/generation/: As before rename
+	karp54_classic.hpp to karp54_cl.hpp and adjust generation.hpp
+
+2015-05-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/NEWS.Rd: Updated and expanded use of links throughout
+
+2015-05-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 1.58.0-1
+
+2015-05-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Non-CRAN test release 1.58.0-0
+
+	* local/scripts/CreateBoost.sh: Ensure all files in atomic are copied
+
+2015-05-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* local/scripts/CreateBoost.sh: Added Boost.Multiprecision (cf #12)
+
+	* numeric/odeint/stepper/generation/: As before rename
+	karp54_classic.hpp to karp54_cl.hpp and adjust generation.hpp
+
+2015-01-04  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 1.55.0-3
+
+	* local/scripts/CreateBoost.sh: Added Boost.Graph also needed for
+	Streamulus / RcppStreams
+
+2015-01-03  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 1.55.0-2
+
+	* local/scripts/CreateBoost.sh: Added Boost.Fusion needed for
+	Streamulus / RcppStreams
+
+2014-12-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 1.55.0-1 wrapping (parts of) Boost 1.55
+
+2014-12-20  Dirk Eddelbuettel  <edd@debian.org>
+
+	* local/boost_1_55_0.tar.gz: Added, taken from Debian file
+	boost1.55_1.55.0+dfsg.orig.tar.gz
+
+	* local/scripts/CreateBoost.sh: Also include Boost.Geometry as
+	requested in GitHub issue ticket #5 by user 'teramonagi'
+
+	* numeric/odeint/stepper/generation/: As before rename
+	karp54_classic.hpp to karp54_cl.hpp and adjust generation.hpp
+
+2014-11-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 1.54.0-5
+
+	* local/scripts/CreateBoost.sh: Also include Boost.Circular_Buffer as
+	requested by Ben Goodrich for use by RStan
+
+2014-08-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 1.54.0-4
+
+	* local/scripts/CreateBoost.sh: Also include Boost.Any as requested
+	by Greg Jeffries for his upcoming nabo package (currently on GitHub)
+
+2014-08-03  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 1.54.0-3
+
+	* local/scripts/CreateBoost.sh: Also include Boost Heap to satisfy a
+	build requirement for the next RcppMLPACK version
+
+	* lexical_cast.hpp: Apply same fix as in 1.54.0-2
+	* numeric/odeint/stepper/generation/: As before, rename 'generation
+	runge kutta cash karp54 classic' to shorter '... karp54 cl' (and
+	adjust include in generation.hpp) to fit character limit for R's tar
+
+2014-04-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 1.54.0-2
+
+2014-04-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* lexical_cast.hpp (BOOST_LCAST_HAS_INT128): ensure that
+	BOOST_LCAST_HAS_INT128 is set only if BOOST_HAS_INT128 is set
+
+	* ChangeLog: Started. Better late than never.

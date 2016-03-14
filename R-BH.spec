@@ -4,7 +4,7 @@
 #
 Name     : R-BH
 Version  : 1.60.0
-Release  : 7
+Release  : 8
 URL      : http://cran.r-project.org/src/contrib/BH_1.60.0-1.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/BH_1.60.0-1.tar.gz
 Summary  : Boost C++ Header Files
@@ -24,8 +24,8 @@ BuildRequires : clr-R-helpers
 %install
 rm -rf %{buildroot}
 export LANG=C
-export CFLAGS="$CFLAGS -O3 -flto -ffunction-sections -fno-semantic-interposition "
-export CXXFLAGS="$CXXFLAGS -O3 -flto -ffunction-sections -fno-semantic-interposition "
+export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"

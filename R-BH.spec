@@ -4,9 +4,9 @@
 #
 Name     : R-BH
 Version  : 1.60.0
-Release  : 18
-URL      : http://cran.r-project.org/src/contrib/BH_1.60.0-1.tar.gz
-Source0  : http://cran.r-project.org/src/contrib/BH_1.60.0-1.tar.gz
+Release  : 19
+URL      : http://cran.r-project.org/src/contrib/BH_1.60.0-2.tar.gz
+Source0  : http://cran.r-project.org/src/contrib/BH_1.60.0-2.tar.gz
 Summary  : Boost C++ Header Files
 Group    : Development/Tools
 License  : BSL-1.0
@@ -14,12 +14,13 @@ BuildRequires : boost-dev
 BuildRequires : clr-R-helpers
 
 %description
-## bh: Boost Headers for R  [![Build Status](https://travis-ci.org/eddelbuettel/bh.svg)](https://travis-ci.org/eddelbuettel/bh) [![License](https://img.shields.io/badge/License-BSL--1.0-brightgreen.svg?style=flat)](http://www.boost.org/users/license.html) [![Downloads](http://cranlogs.r-pkg.org/badges/BH?color=brightgreen)](http://cran.rstudio.com/package=BH)
+## bh [![Build Status](https://travis-ci.org/eddelbuettel/bh.svg)](https://travis-ci.org/eddelbuettel/bh) [![License](https://img.shields.io/badge/license-BSL--1.0-brightgreen.svg?style=flat)](http://www.boost.org/users/license.html) [![CRAN](http://www.r-pkg.org/badges/version/BH)](http://cran.r-project.org/package=BH) [![Downloads](http://cranlogs.r-pkg.org/badges/BH?color=brightgreen)](http://www.r-pkg.org/pkg/BH)
 
 %prep
 %setup -q -c -n BH
 
 %build
+export LANG=C
 
 %install
 rm -rf %{buildroot}
@@ -35,6 +36,7 @@ mkdir -p %{buildroot}/usr/lib64/R/library
 R CMD INSTALL --install-tests --build  -l %{buildroot}/usr/lib64/R/library BH
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
+export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost
@@ -748,10 +750,24 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/detail/comparison_adaptor.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/detail/functor_bag.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/detail/identity_converters.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/detail/key_extractor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/detail/non_unique_container_helper.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/list_adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/list_map_adaptor.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/map_adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/multimap_adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/multiset_adaptor.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/ordered_associative_container_adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/sequence_container_adaptor.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/set_adaptor.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/support/iterator_facade_converters.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/unordered_associative_container_adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/unordered_map_adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/unordered_multimap_adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/unordered_multiset_adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/unordered_set_adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/vector_adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/container_adaptor/vector_map_adaptor.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/detail/bimap_core.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/detail/concept_tags.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/detail/debug/static_error.hpp
@@ -764,9 +780,15 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/bimap/detail/map_view_base.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/detail/map_view_iterator.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/detail/modifier_adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/detail/non_unique_views_helper.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/detail/set_view_base.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/detail/set_view_iterator.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/detail/test/check_metadata.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/detail/user_interface_config.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/list_of.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/multiset_of.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/property_map/set_support.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/property_map/unordered_set_support.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/relation/detail/access_builder.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/relation/detail/metadata_access_builder.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/relation/detail/mutant.hpp
@@ -790,18 +812,35 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/bimap/support/data_type_by.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/support/iterator_type_by.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/support/key_type_by.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/support/lambda.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/support/map_by.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/support/map_type_by.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/support/value_type_by.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/tags/support/apply_to_value_type.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/tags/support/default_tagged.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/tags/support/is_tagged.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/tags/support/overwrite_tagged.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/tags/support/tag_of.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/tags/support/value_type_of.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/tags/tagged.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/unconstrained_set_of.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/unordered_multiset_of.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/unordered_set_of.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/vector_of.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/views/list_map_view.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/views/list_set_view.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/views/map_view.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/views/multimap_view.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/views/multiset_view.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/views/set_view.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/views/unconstrained_map_view.hpp
 /usr/lib64/R/library/BH/include/boost/bimap/views/unconstrained_set_view.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/views/unordered_map_view.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/views/unordered_multimap_view.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/views/unordered_multiset_view.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/views/unordered_set_view.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/views/vector_map_view.hpp
+/usr/lib64/R/library/BH/include/boost/bimap/views/vector_set_view.hpp
 /usr/lib64/R/library/BH/include/boost/bind.hpp
 /usr/lib64/R/library/BH/include/boost/bind/apply.hpp
 /usr/lib64/R/library/BH/include/boost/bind/arg.hpp
@@ -1341,6 +1380,47 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/filesystem/path.hpp
 /usr/lib64/R/library/BH/include/boost/filesystem/path_traits.hpp
 /usr/lib64/R/library/BH/include/boost/filesystem/string_file.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/assoc_container_factory.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/assoc_container_factory_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/archive_constructed.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/default_value_policy.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/dyn_perfect_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/flyweight_core.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/is_placeholder_expr.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/nested_xxx_if_not_ph.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/not_placeholder_expr.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/perfect_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/pp_perfect_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/recursive_lw_mutex.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/serialization_helper.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/detail/value_tag.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/factory_tag.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/flyweight.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/flyweight_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/hashed_factory.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/hashed_factory_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/holder_tag.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/intermodule_holder.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/intermodule_holder_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/key_value.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/key_value_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/locking_tag.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/no_locking.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/no_locking_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/no_tracking.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/no_tracking_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/refcounted.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/refcounted_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/serialize.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/set_factory.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/set_factory_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/simple_locking.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/simple_locking_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/static_holder.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/static_holder_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/tag.hpp
+/usr/lib64/R/library/BH/include/boost/flyweight/tracking_tag.hpp
 /usr/lib64/R/library/BH/include/boost/foreach.hpp
 /usr/lib64/R/library/BH/include/boost/foreach_fwd.hpp
 /usr/lib64/R/library/BH/include/boost/format.hpp
@@ -3557,6 +3637,119 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/heap/policies.hpp
 /usr/lib64/R/library/BH/include/boost/heap/priority_queue.hpp
 /usr/lib64/R/library/BH/include/boost/heap/skew_heap.hpp
+/usr/lib64/R/library/BH/include/boost/icl/associative_element_container.hpp
+/usr/lib64/R/library/BH/include/boost/icl/associative_interval_container.hpp
+/usr/lib64/R/library/BH/include/boost/icl/closed_interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/comparable.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/container.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/element_associator.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/element_map.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/element_set.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/element_set_value.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/interval_associator.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/interval_associator_base.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/interval_bounds.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/interval_map.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/interval_set.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/interval_set_value.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/joinable.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/map_value.hpp
+/usr/lib64/R/library/BH/include/boost/icl/concept/set_value.hpp
+/usr/lib64/R/library/BH/include/boost/icl/continuous_interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/associated_value.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/boost_config.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/concept_check.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/design_config.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/element_comparer.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/element_iterator.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/exclusive_less_than.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/interval_map_algo.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/interval_morphism.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/interval_set_algo.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/interval_subset_comparer.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/map_algo.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/mapped_reference.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/notate.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/on_absorbtion.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/relation_state.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/set_algo.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/std_set.hpp
+/usr/lib64/R/library/BH/include/boost/icl/detail/subset_comparer.hpp
+/usr/lib64/R/library/BH/include/boost/icl/discrete_interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/dynamic_interval_traits.hpp
+/usr/lib64/R/library/BH/include/boost/icl/functors.hpp
+/usr/lib64/R/library/BH/include/boost/icl/gregorian.hpp
+/usr/lib64/R/library/BH/include/boost/icl/impl_config.hpp
+/usr/lib64/R/library/BH/include/boost/icl/interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/interval_base_map.hpp
+/usr/lib64/R/library/BH/include/boost/icl/interval_base_set.hpp
+/usr/lib64/R/library/BH/include/boost/icl/interval_bounds.hpp
+/usr/lib64/R/library/BH/include/boost/icl/interval_combining_style.hpp
+/usr/lib64/R/library/BH/include/boost/icl/interval_map.hpp
+/usr/lib64/R/library/BH/include/boost/icl/interval_set.hpp
+/usr/lib64/R/library/BH/include/boost/icl/interval_traits.hpp
+/usr/lib64/R/library/BH/include/boost/icl/iterator.hpp
+/usr/lib64/R/library/BH/include/boost/icl/left_open_interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/map.hpp
+/usr/lib64/R/library/BH/include/boost/icl/open_interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/predicates/distinct_equal.hpp
+/usr/lib64/R/library/BH/include/boost/icl/predicates/element_equal.hpp
+/usr/lib64/R/library/BH/include/boost/icl/predicates/std_equal.hpp
+/usr/lib64/R/library/BH/include/boost/icl/predicates/sub_super_set.hpp
+/usr/lib64/R/library/BH/include/boost/icl/ptime.hpp
+/usr/lib64/R/library/BH/include/boost/icl/rational.hpp
+/usr/lib64/R/library/BH/include/boost/icl/right_open_interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/separate_interval_set.hpp
+/usr/lib64/R/library/BH/include/boost/icl/set.hpp
+/usr/lib64/R/library/BH/include/boost/icl/split_interval_map.hpp
+/usr/lib64/R/library/BH/include/boost/icl/split_interval_set.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/absorbs_identities.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/adds_inversely.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/codomain_type_of.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/difference.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/difference_type_of.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/domain_type_of.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/element_type_of.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/has_inverse.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/has_set_semantics.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/identity_element.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/infinity.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/interval_type_default.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/interval_type_of.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_associative_element_container.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_asymmetric_interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_combinable.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_concept_equivalent.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_container.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_continuous.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_continuous_interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_discrete.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_discrete_interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_element_container.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_icl_container.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_increasing.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_interval.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_interval_container.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_interval_joiner.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_interval_separator.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_interval_splitter.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_key_container_of.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_map.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_numeric.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_set.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/is_total.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/no_type.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/predicate.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/rep_type_of.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/segment_type_of.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/size.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/size_type_of.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/succ_pred.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/to_string.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/type_to_string.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/unit_element.hpp
+/usr/lib64/R/library/BH/include/boost/icl/type_traits/value_size.hpp
 /usr/lib64/R/library/BH/include/boost/implicit_cast.hpp
 /usr/lib64/R/library/BH/include/boost/indirect_reference.hpp
 /usr/lib64/R/library/BH/include/boost/integer.hpp
@@ -5521,6 +5714,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/multi_array/subarray.hpp
 /usr/lib64/R/library/BH/include/boost/multi_array/types.hpp
 /usr/lib64/R/library/BH/include/boost/multi_array/view.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/composite_key.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/access_specifier.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/adl_swap.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/archive_constructed.hpp
@@ -5528,6 +5722,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/base_type.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/bidir_node_iterator.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/bucket_array.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/detail/cons_stdtuple.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/converter.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/copy_map.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/do_not_copy_elements_tag.hpp
@@ -5558,6 +5753,11 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/prevent_eti.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/promotes_arg.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/raw_ptr.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/detail/rnd_index_loader.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/detail/rnd_index_node.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/detail/rnd_index_ops.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/detail/rnd_index_ptr_array.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/detail/rnd_node_iterator.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/safe_ctr_proxy.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/safe_mode.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/scope_guard.hpp
@@ -5568,14 +5768,19 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/unbounded.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/value_compare.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/detail/vartempl_support.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/global_fun.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/hashed_index.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/hashed_index_fwd.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/identity.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/identity_fwd.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/indexed_by.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/key_extractors.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/mem_fun.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/member.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/ordered_index.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/ordered_index_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/random_access_index.hpp
+/usr/lib64/R/library/BH/include/boost/multi_index/random_access_index_fwd.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/safe_mode_errors.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/sequenced_index.hpp
 /usr/lib64/R/library/BH/include/boost/multi_index/sequenced_index_fwd.hpp
@@ -9690,6 +9895,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/icase.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/linker.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/list.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/action_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/alternate_end_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/alternate_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/any_matcher.hpp
@@ -9699,6 +9905,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/assert_eos_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/assert_line_base.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/assert_word_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/attr_begin_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/attr_end_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/attr_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/charset_matcher.hpp
@@ -9714,6 +9921,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/mark_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/optional_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/posix_charset_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/predicate_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/range_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/regex_byref_matcher.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/regex_matcher.hpp
@@ -9734,7 +9942,12 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/sub_match_impl.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/core/sub_match_vector.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/detail_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/dynamic.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/matchable.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/parse_charset.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/parser.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/parser_enum.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/parser_traits.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/sequence.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/static/compile.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/static/grammar.hpp
@@ -9778,7 +9991,9 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/traits_utils.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/width.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/match_results.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/regex_actions.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/regex_algorithms.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/regex_compiler.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/regex_constants.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/regex_error.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/regex_iterator.hpp
@@ -9789,5 +10004,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/include/boost/xpressive/traits/c_regex_traits.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/traits/cpp_regex_traits.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/traits/detail/c_ctype.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/xpressive.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/xpressive_dynamic.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/xpressive_fwd.hpp
 /usr/lib64/R/library/BH/include/boost/xpressive/xpressive_static.hpp

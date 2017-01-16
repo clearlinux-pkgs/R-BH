@@ -4,7 +4,7 @@
 #
 Name     : R-BH
 Version  : 1.60.0
-Release  : 22
+Release  : 23
 URL      : http://cran.r-project.org/src/contrib/BH_1.60.0-2.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/BH_1.60.0-2.tar.gz
 Summary  : Boost C++ Header Files
@@ -21,6 +21,7 @@ BuildRequires : clr-R-helpers
 
 %build
 export LANG=C
+export SOURCE_DATE_EPOCH=1484529923
 
 %install
 rm -rf %{buildroot}
@@ -33,7 +34,7 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
-R CMD INSTALL --install-tests --build  -l %{buildroot}/usr/lib64/R/library BH
+R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library BH
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
 export LANG=C

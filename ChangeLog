@@ -1,3 +1,32 @@
+2016-11-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 1.62.0-1
+
+	* inst/include/boost/variant/detail/forced_return.hpp: Ensure
+	R_NO_REMAP is defined
+
+2016-11-15  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/boost/variant/detail/forced_return.hpp
+	(forced_return_no_return): Call Rf_error() not abort()
+
+2016-11-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* local/scripts/CreateBoost.sh: Added Boost.PropertyTree (cf #29),
+	Boost.ScopeExit (cf #30) and (belatedly) formally added Boost.Atomic
+
+	* numeric/odeint/stepper/generation/: As before rename
+	karp54_classic.hpp to karp54_cl.hpp and adjust generation.hpp
+
+2016-06-04  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Description): s/type_trains/type_traits/
+	* local/scripts/CreateBoost.sh (boostlibs): Ditto
+
+2016-06-04  Evelyn Mitchell <efm-github@linsomniac.com>
+
+	* README.md: Correct typo via s/type_trains/type_traits/
+
 2016-05-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* local/scripts/CreateBoost.sh: Added Boost.Flyweight (cf #26)

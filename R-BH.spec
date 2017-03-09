@@ -4,7 +4,7 @@
 #
 Name     : R-BH
 Version  : 1.62.0.1
-Release  : 29
+Release  : 30
 URL      : http://cran.r-project.org/src/contrib/BH_1.62.0-1.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/BH_1.62.0-1.tar.gz
 Summary  : Boost C++ Header Files
@@ -21,11 +21,11 @@ BuildRequires : clr-R-helpers
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1489096270
+export SOURCE_DATE_EPOCH=1489101748
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1489096270
+export SOURCE_DATE_EPOCH=1489101748
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -64,7 +64,6 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/BH/help/paths.rds
 /usr/lib64/R/library/BH/html/00Index.html
 /usr/lib64/R/library/BH/html/R.css
-/usr/lib64/R/library/BH/include/boost/
 /usr/lib64/R/library/BH/include/boost/accumulators/accumulators.hpp
 /usr/lib64/R/library/BH/include/boost/accumulators/accumulators_fwd.hpp
 /usr/lib64/R/library/BH/include/boost/accumulators/framework/accumulator_base.hpp

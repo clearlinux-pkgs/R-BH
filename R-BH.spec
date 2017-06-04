@@ -4,7 +4,7 @@
 #
 Name     : R-BH
 Version  : 1.62.0.1
-Release  : 35
+Release  : 36
 URL      : http://cran.r-project.org/src/contrib/BH_1.62.0-1.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/BH_1.62.0-1.tar.gz
 Summary  : Boost C++ Header Files
@@ -24,11 +24,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1492795034
+export SOURCE_DATE_EPOCH=1496598790
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1492795034
+export SOURCE_DATE_EPOCH=1496598790
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -38,7 +38,22 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
+
+mkdir -p ~/.R
+mkdir -p ~/.stash
+echo "CFLAGS = $CFLAGS -march=haswell -ftree-vectorize " > ~/.R/Makevars
+echo "FFLAGS = $FFLAGS -march=haswell -ftree-vectorize " >> ~/.R/Makevars
+echo "CXXFLAGS = $CXXFLAGS -march=haswell -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library BH
+for i in `find %{buildroot}/usr/lib64/R/ -name "*.so"`; do mv $i $i.avx2 ; mv $i.avx2 ~/.stash/; done
+echo "CFLAGS = $CFLAGS -march=skylake-avx512 -ftree-vectorize " > ~/.R/Makevars
+echo "FFLAGS = $FFLAGS -march=skylake-avx512 -ftree-vectorize " >> ~/.R/Makevars
+echo "CXXFLAGS = $CXXFLAGS -march=skylake-avx512 -ftree-vectorize " >> ~/.R/Makevars
+R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library BH
+for i in `find %{buildroot}/usr/lib64/R/ -name "*.so"`; do mv $i $i.avx512 ; mv $i.avx512 ~/.stash/; done
+rm ~/.R/Makevars
+R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library BH
+cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
 export LANG=C
@@ -47,6 +62,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library BH
+cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 
 
 %files

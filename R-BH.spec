@@ -4,7 +4,7 @@
 #
 Name     : R-BH
 Version  : 1.62.0.1
-Release  : 38
+Release  : 39
 URL      : http://cran.r-project.org/src/contrib/BH_1.62.0-1.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/BH_1.62.0-1.tar.gz
 Summary  : Boost C++ Header Files
@@ -14,7 +14,13 @@ BuildRequires : boost-dev
 BuildRequires : clr-R-helpers
 
 %description
-## bh [![Build Status](https://travis-ci.org/eddelbuettel/bh.svg)](https://travis-ci.org/eddelbuettel/bh) [![License](https://img.shields.io/badge/license-BSL--1.0-brightgreen.svg?style=flat)](http://www.boost.org/users/license.html) [![CRAN](http://www.r-pkg.org/badges/version/BH)](https://cran.r-project.org/package=BH) [![Downloads](http://cranlogs.r-pkg.org/badges/BH?color=brightgreen)](http://www.r-pkg.org/pkg/BH)
+libraries.  A large part of Boost is provided as C++ template code
+ which is resolved entirely at compile-time without linking.  This 
+ package aims to provide the most useful subset of Boost libraries 
+ for template use among CRAN package. By placing these libraries in 
+ this package, we offer a more efficient distribution system for CRAN 
+ as replication of this code in the sources of other packages is 
+ avoided. As of release 1.62.0-1, the following Boost libraries are
 
 %prep
 %setup -q -c -n BH
@@ -24,11 +30,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1496604211
+export SOURCE_DATE_EPOCH=1502396883
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1496604211
+export SOURCE_DATE_EPOCH=1502396883
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -69,7 +75,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 
 %files
 %defattr(-,root,root,-)
-/usr/lib64/R/library/
 /usr/lib64/R/library/BH/DESCRIPTION
 /usr/lib64/R/library/BH/INDEX
 /usr/lib64/R/library/BH/Meta/Rd.rds

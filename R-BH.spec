@@ -4,7 +4,7 @@
 #
 Name     : R-BH
 Version  : 1.69.0.1
-Release  : 69
+Release  : 70
 URL      : https://cran.r-project.org/src/contrib/BH_1.69.0-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/BH_1.69.0-1.tar.gz
 Summary  : Provides free peer-reviewed portable C++ source libraries.

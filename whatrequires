@@ -1,12 +1,10 @@
 # This file contains recursive sources that require this package
 R-DescTools
 R-RSQLite
-R-ddalpha
 R-dplyr
 R-httpuv
 R-later
 R-mvnfast
-R-readr
 R-rstan
 R-tm
 R-treatSens

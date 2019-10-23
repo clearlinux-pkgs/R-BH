@@ -4,23 +4,18 @@
 #
 Name     : R-BH
 Version  : 1.69.0.1
-Release  : 71
+Release  : 72
 URL      : https://cran.r-project.org/src/contrib/BH_1.69.0-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/BH_1.69.0-1.tar.gz
-Summary  : Boost C++ Header Files
+Summary  : Provides free peer-reviewed portable C++ source libraries.
 Group    : Development/Tools
 License  : BSL-1.0
 BuildRequires : boost-dev
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
-libraries.  A large part of Boost is provided as C++ template code
- which is resolved entirely at compile-time without linking.  This 
- package aims to provide the most useful subset of Boost libraries 
- for template use among CRAN package. By placing these libraries in 
- this package, we offer a more efficient distribution system for CRAN 
- as replication of this code in the sources of other packages is 
- avoided. As of release 1.69.0-1, the following Boost libraries are
+## bh [![Build Status](https://travis-ci.org/eddelbuettel/bh.svg)](https://travis-ci.org/eddelbuettel/bh) [![License](https://img.shields.io/badge/license-BSL--1.0-brightgreen.svg?style=flat)](http://www.boost.org/users/license.html) [![CRAN](http://www.r-pkg.org/badges/version/BH)](https://cran.r-project.org/package=BH) [![Dependencies](https://tinyverse.netlify.com/badge/BH)](https://cran.r-project.org/package=BH) [![Downloads](http://cranlogs.r-pkg.org/badges/BH?color=brightgreen)](http://www.r-pkg.org/pkg/BH)
 
 %prep
 %setup -q -c -n BH
@@ -30,10 +25,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568751883
+export SOURCE_DATE_EPOCH=1571801628
 
 %install
-export SOURCE_DATE_EPOCH=1568751883
+export SOURCE_DATE_EPOCH=1571801628
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "

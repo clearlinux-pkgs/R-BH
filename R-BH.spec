@@ -4,7 +4,7 @@
 #
 Name     : R-BH
 Version  : 1.72.0.3
-Release  : 80
+Release  : 81
 URL      : https://cran.r-project.org/src/contrib/BH_1.72.0-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/BH_1.72.0-3.tar.gz
 Summary  : Boost C++ Header Files
@@ -14,25 +14,32 @@ BuildRequires : boost-dev
 BuildRequires : buildreq-R
 
 %description
-## bh [![Build Status](https://travis-ci.org/eddelbuettel/bh.svg)](https://travis-ci.org/eddelbuettel/bh) [![License](https://img.shields.io/badge/license-BSL--1.0-brightgreen.svg?style=flat)](http://www.boost.org/users/license.html) [![CRAN](http://www.r-pkg.org/badges/version/BH)](https://cran.r-project.org/package=BH) [![Dependencies](https://tinyverse.netlify.com/badge/BH)](https://cran.r-project.org/package=BH) [![Downloads](http://cranlogs.r-pkg.org/badges/BH?color=brightgreen)](http://www.r-pkg.org/pkg/BH)
+libraries.  A large part of Boost is provided as C++ template code
+ which is resolved entirely at compile-time without linking.  This 
+ package aims to provide the most useful subset of Boost libraries 
+ for template use among CRAN packages. By placing these libraries in 
+ this package, we offer a more efficient distribution system for CRAN 
+ as replication of this code in the sources of other packages is 
+ avoided. As of release 1.72.0-3, the following Boost libraries are
 
 %prep
 %setup -q -c -n BH
+cd %{_builddir}/BH
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578692273
+export SOURCE_DATE_EPOCH=1589510598
 
 %install
-export SOURCE_DATE_EPOCH=1578692273
+export SOURCE_DATE_EPOCH=1589510598
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

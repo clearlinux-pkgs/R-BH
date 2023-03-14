@@ -4,7 +4,7 @@
 #
 Name     : R-BH
 Version  : 1.81.0.1
-Release  : 104
+Release  : 105
 URL      : https://cran.r-project.org/src/contrib/BH_1.81.0-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/BH_1.81.0-1.tar.gz
 Summary  : Boost C++ Header Files
@@ -13,9 +13,6 @@ License  : BSL-1.0
 Requires: R-BH-license = %{version}-%{release}
 BuildRequires : boost-dev
 BuildRequires : buildreq-R
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 libraries.  A large part of Boost is provided as C++ template code
@@ -43,10 +40,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1674496603
+export SOURCE_DATE_EPOCH=1678811178
 
 %install
-export SOURCE_DATE_EPOCH=1674496603
+export SOURCE_DATE_EPOCH=1678811178
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-BH
 cp %{_builddir}/BH/inst/LICENSE_1_0.txt %{buildroot}/usr/share/package-licenses/R-BH/3cba29011be2b9d59f6204d6fa0a386b1b2dbd90 || :
@@ -107,7 +104,6 @@ R CMD check --no-manual --no-examples --no-codoc . || :
 /usr/lib64/R/library/BH/help/paths.rds
 /usr/lib64/R/library/BH/html/00Index.html
 /usr/lib64/R/library/BH/html/R.css
-/usr/lib64/R/library/BH/include
 /usr/lib64/R/library/BH/include/boost/accumulators/accumulators.hpp
 /usr/lib64/R/library/BH/include/boost/accumulators/accumulators_fwd.hpp
 /usr/lib64/R/library/BH/include/boost/accumulators/framework/accumulator_base.hpp
@@ -12526,6 +12522,162 @@ R CMD check --no-manual --no-examples --no-codoc . || :
 /usr/lib64/R/library/BH/include/boost/winapi/get_current_thread_id.hpp
 /usr/lib64/R/library/BH/include/boost/winapi/get_last_error.hpp
 /usr/lib64/R/library/BH/include/boost/winapi/get_proc_address.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/get_process_times.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/get_system_directory.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/get_thread_times.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/handle_info.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/handles.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/heap_memory.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/init_once.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/jobs.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/limits.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/local_memory.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/memory.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/mutex.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/overlapped.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/page_protection_flags.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/pipes.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/priority_class.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/process.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/security.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/semaphore.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/shell.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/show_window.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/srw_lock.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/stack_backtrace.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/synchronization.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/system.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/thread.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/thread_pool.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/time.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/timers.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/tls.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/wait.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/wait_constants.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/wait_on_address.hpp
+/usr/lib64/R/library/BH/include/boost/winapi/waitable_timer.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/basic_regex.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/access.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/action.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/adaptor.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/finder.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/flow_control.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/icase.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/linker.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/list.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/action_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/alternate_end_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/alternate_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/any_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/assert_bol_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/assert_bos_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/assert_eol_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/assert_eos_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/assert_line_base.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/assert_word_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/attr_begin_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/attr_end_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/attr_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/charset_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/end_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/epsilon_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/keeper_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/literal_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/logical_newline_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/lookahead_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/lookbehind_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/mark_begin_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/mark_end_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/mark_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/optional_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/posix_charset_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/predicate_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/range_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/regex_byref_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/regex_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/repeat_begin_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/repeat_end_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/set_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/simple_repeat_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/string_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matcher/true_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/matchers.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/optimize.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/peeker.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/quant_style.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/regex_domain.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/regex_impl.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/results_cache.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/state.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/sub_match_impl.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/core/sub_match_vector.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/detail_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/dynamic.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/matchable.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/parse_charset.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/parser.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/parser_enum.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/parser_traits.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/dynamic/sequence.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/compile.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/grammar.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/is_pure.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/modifier.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/placeholders.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/static.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/transforms/as_action.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/transforms/as_alternate.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/transforms/as_independent.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/transforms/as_inverse.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/transforms/as_marker.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/transforms/as_matcher.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/transforms/as_modifier.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/transforms/as_quantifier.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/transforms/as_sequence.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/transforms/as_set.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/transmogrify.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/type_traits.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/visitor.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/static/width_of.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/algorithm.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/any.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/boyer_moore.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/chset/basic_chset.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/chset/basic_chset.ipp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/chset/chset.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/chset/range_run.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/chset/range_run.ipp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/cons.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/counted_base.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/dont_care.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/hash_peek_bitset.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/ignore_unused.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/literals.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/never_true.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/save_restore.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/sequence_stack.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/symbols.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/tracking_ptr.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/traits_utils.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/detail/utility/width.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/match_results.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/regex_actions.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/regex_algorithms.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/regex_compiler.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/regex_constants.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/regex_error.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/regex_iterator.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/regex_primitives.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/regex_token_iterator.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/regex_traits.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/sub_match.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/traits/c_regex_traits.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/traits/cpp_regex_traits.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/traits/detail/c_ctype.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/xpressive.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/xpressive_dynamic.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/xpressive_fwd.hpp
+/usr/lib64/R/library/BH/include/boost/xpressive/xpressive_static.hpp
 
 %files license
 %defattr(0644,root,root,0755)

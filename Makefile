@@ -1,5 +1,5 @@
 PKG_NAME := R-BH
-URL = https://cran.r-project.org/src/contrib/BH_1.84.0-0.tar.gz
+URL = https://ftp.osuosl.org/pub/cran/src/contrib/BH_1.87.0-1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
